@@ -120,7 +120,7 @@ void ObjectsDetectionApplication::one_step(const cv::Mat& m_detecting_image)
     objects_detector_p->compute();
     objects_detector_compute_time = omp_get_wtime() - start_objects_detector_compute_wall_time;
 
-    cout<<"one detector using: "<<objects_detector_compute_time*1000<<"ms in image "<<num_iterations<<endl;
+    cout<<"one detector using: "<<objects_detector_compute_time*1000<<"ms in this image "<<endl;
 
     return;
 

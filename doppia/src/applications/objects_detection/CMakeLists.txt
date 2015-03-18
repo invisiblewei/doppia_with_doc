@@ -220,9 +220,9 @@ target_link_libraries(objects_detection cuda_stuff_library ${local_CUDA_LIB})
 endif(USE_GPU)
 # ----------------------------------------------------------------------
 
-add_executable(objects_detection_awf ./objects_detection_awf.cpp)
+add_executable(objects_detection_afw ./objects_detection_afw.cpp)
 
-target_link_libraries(objects_detection_awf
+target_link_libraries(objects_detection_afw
    cpp_stuff_library
    protobuf 
    ${Boost_LIBRARIES}
@@ -230,7 +230,7 @@ target_link_libraries(objects_detection_awf
 )
 
 if(USE_GPU)
-target_link_libraries(objects_detection_awf cuda_stuff_library ${local_CUDA_LIB})
+target_link_libraries(objects_detection_afw cuda_stuff_library ${local_CUDA_LIB})
 endif(USE_GPU)
 # ----------------------------------------------------------------------
 
