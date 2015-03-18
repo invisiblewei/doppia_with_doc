@@ -1,0 +1,34 @@
+
+[objects_detector]
+
+method = gpu_channels
+
+model = ../../../data/trained_models/face_detection/headhunter_baseline.proto.bin
+#model = ../../../data/trained_models/face_detection/headhunter.proto.bin
+
+score_threshold = -0.05 # nice for visualization
+#score_threshold = 0 # default threshold
+# lower threshold increases recall
+
+
+# strides smaller than 1 ensures that will use 1 pixel at all scales
+#x_stride = 0.00001 
+#y_stride = 0.00001
+ 
+x_stride = 0.001 
+y_stride = 0.001
+
+non_maximal_suppression_method = greedy
+minimal_overlap_threshold=0.3
+
+min_scale = 0.325
+max_scale = 6
+
+num_scales = 30
+#num_scales = 80
+
+# ratio is defined as width/height
+min_ratio = 1
+max_ratio = 1
+num_ratios = 1 
+
