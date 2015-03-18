@@ -52,8 +52,15 @@ sm_50 should match your GPU architecture.
 1. then `cmake .. `and `make -j8`(or `-j10`) to make things faster.
 1. If things went well back to the parent directory `cd ../` you should be able to run 
 
+**run example for detect in one image**
+
 `./build/objects_detection -c eccv2014_face_detection_pascal.config.ini`
 
+**run example for detect on afw dataset**
+```shell
+./data/afw/get_afw.sh #get afw images from web
+./build/objects_detection_afw -c eccv2014_face_detection_pascal.config.ini
+```
 #How to test the code?
 the config for detector is in `eccv2014_face_detection_pascal.config.ini`
 

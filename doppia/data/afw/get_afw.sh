@@ -2,6 +2,8 @@
 zippath="AFW.zip"
 imgpath="testimages" 
 
+cd "data/afw"
+
 if [ ! -e $zippath ]; then 
     echo "wget"
     wget http://www.ics.uci.edu/~xzhu/face/AFW.zip
