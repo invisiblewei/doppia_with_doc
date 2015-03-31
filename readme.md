@@ -5,14 +5,14 @@ the code is a simplification version from the doppia code by rodrigob.
 
 Reserve detection part using integral channels detector and cut the stereo part.
 
-There are still some problems in the CPU version of the code, So I recommend compile with GPU.
+You cam choose to complie CPU or GPU version.
 
 Main program is in the folder `/src/applications/objects_detection` 
 
+In folder `/model` give the human-readable version of the model files help to read the codes
+
 #Requirements
 * Linux (the code can in theory compile and run on windows, but practice has shown this to be a bad idea).
-* C++ and CUDA compilation environments properly set. Only gcc 4.5 or superior are supported.
-* A GPU with CUDA capability 2.0 or higher (only for objects detection code), and ~200 Mb of free memory (for images of 640x480 pixels).
 * All boost libraries.
 * Google protocol buffer.
 * OpenCv installed (2.4, but code also work with older versions. 3.0 not yet suppoted, but pull requests welcome).
@@ -20,26 +20,34 @@ Main program is in the folder `/src/applications/objects_detection`
 * CMake >= 2.4.3 (and knowledge on how to use it).
 * Fair amount of patience to get things running.
 
+**If with GPU**
+
+* C++ and CUDA compilation environments properly set. Only gcc 4.5 or superior are supported.
+* A GPU with CUDA capability 2.0 or higher (only for objects detection code), and ~200 Mb of free memory (for images of 640x480 pixels).
 #How to compile the code ?
 ##Step 1:
 install the requirements
 
-* boost [boost](http://www.boost.org/users/download/)
+* boost: [boost](http://www.boost.org/users/download/)
 
-* Follow C++ Installation - Unix in [Google protocol buffer](https://github.com/google/protobuf/)
+* Google protocol: Follow C++ Installation - Unix in [Google protocol buffer](https://github.com/google/protobuf/)
 
-* CUDA [cuda-downloads](https://developer.nvidia.com/cuda-downloads)
+* OpenCV: [opencv](http://opencv.org/)
 
-* OpenCV [opencv](http://opencv.org/)
+* CMake: `sudo apt-get install cmake`
 
-* CMake `sudo apt-get install cmake`
+* ccmake: install ccmake gui for cmake `sudo apt-get install cmake-curses-gui`
 
-* install ccmake gui for cmake `sudo apt-get install cmake-curses-gui`
+**If with GPU**
+
+* CUDA: [cuda-downloads](https://developer.nvidia.com/cuda-downloads)
 
 ##Step 2: 
 
 * Before trying to compile anything you should also execute (once) generate_protocol_buffer_files.sh to make sure the protocol buffer files match the version installed in your system.
 * check the file `common_settings.cmake` and make sure the configuration specfic to your own machine
+
+**If with GPU**
 
 sm_50 should match your GPU architecture.
 
@@ -49,6 +57,7 @@ sm_50 should match your GPU architecture.
 1. Go to the application directory `cd src/applications/objects_detection`
 1. Make a directory for build and get in `mkdir build && cd build`
 1. Run ccmake to config if compile with GPU `ccmake ..`
+**If you change from gpu to cpu, you'd better clear the build path** `rm -r \*`
 1. then `cmake .. `and `make -j8`(or `-j10`) to make things faster.
 1. If things went well back to the parent directory `cd ../` you should be able to run 
 
