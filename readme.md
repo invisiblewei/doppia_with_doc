@@ -56,7 +56,7 @@ sm_50 should match your GPU architecture.
 
 `./build/objects_detection -c eccv2014_face_detection_pascal.config.ini`
 
-**run example for detect on afw dataset**
+**run example for detect on [afw](http://www.ics.uci.edu/~xzhu/face/) dataset**
 ```shell
 ./data/afw/get_afw.sh #get afw images from web
 ./build/objects_detection_afw -c eccv2014_face_detection_pascal.config.ini
