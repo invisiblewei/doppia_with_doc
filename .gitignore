@@ -1,4 +1,5 @@
 doppia/src/applications/objects_detection/build/*
+doppia/src/applications/objects_detection/build_cpu/*
 doppia/data/afw/AFW.zip
 doppia/data/afw/testimages/*
 *~
